@@ -6,6 +6,8 @@ export default function DiscussedTopics() {
     <section>
       <h2 className="fs-1 py-4 px-3 text-center">Topics I Discuss</h2>
 
+      <hr />
+
       <div className="topics px-4 gap-4">
         <Topic heading="Motivation">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore

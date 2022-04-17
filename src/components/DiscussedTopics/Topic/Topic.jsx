@@ -1,7 +1,10 @@
+import "./Topic.css";
+
 export default function Topic({ heading, children }) {
   return (
-    <div>
+    <div className="d-flex flex-column justify-content-evenly">
       <h3 className="text-center">{heading}</h3>
+
       <p
         className="text-secondary"
         style={{
