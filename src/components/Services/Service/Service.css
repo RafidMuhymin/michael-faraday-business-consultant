@@ -1,0 +1,13 @@
+.services h3 {
+  color: rgb(50, 50, 50);
+}
+
+.services button {
+  width: fit-content;
+}
+
+.services h3::before {
+  counter-increment: topic;
+  content: counter(topic) ". ";
+  color: rgb(13, 110, 253);
+}
