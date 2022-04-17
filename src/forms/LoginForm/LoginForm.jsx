@@ -37,11 +37,28 @@ export default function LoginForm({ register }) {
           type="password"
           name="password"
           id="password"
-          autoComplete="current-password"
+          autoComplete={register ? "new-password" : "current-password"}
           required
         />
         {!register && (
           <button className="btn btn-link px-0">Forgot Password?</button>
+        )}
+
+        {register && (
+          <>
+            <br />
+            <label htmlFor="passwordConfirm" className="form-label">
+              Confirm Password
+            </label>
+            <input
+              className="form-control"
+              type="password"
+              name="passwordConfirm"
+              id="passwordConfirm"
+              autoComplete="new-password"
+              required
+            />
+          </>
         )}
 
         <br />
