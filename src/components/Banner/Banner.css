@@ -1,6 +1,6 @@
 .banner {
   color: white;
-  background-image: url("https://pixabay.com/get/g974339a94ac0fda6092909cbeee63ec6c1d582afe12e4f02aedc1d05ddd9427ba327f8d215248112286dd00823a0c8e3.jpg");
+  background-image: url(../../images/michael-faraday.jpg);
   background-position: 50% 50%;
   background-size: cover;
 }
