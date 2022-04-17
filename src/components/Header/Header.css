@@ -1,0 +1,11 @@
+header nav a {
+  color: white;
+}
+
+header nav a:hover {
+  color: rgb(255, 204, 93);
+}
+
+header svg {
+  font-size: x-large;
+}
