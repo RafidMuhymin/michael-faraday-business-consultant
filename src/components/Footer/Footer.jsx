@@ -1,4 +1,3 @@
-import "./Footer.css"
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -14,7 +13,7 @@ export default function Footer() {
       </nav>
 
       <p className="text-white">
-        Copyright &copy; {new Date().getFullYear()}{" "} Business Consultant
+        Copyright &copy; {new Date().getFullYear()} Business Consultant
       </p>
     </footer>
   );
