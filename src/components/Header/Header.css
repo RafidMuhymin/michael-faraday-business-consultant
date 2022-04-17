@@ -9,3 +9,8 @@ header nav a:hover {
 header svg {
   font-size: x-large;
 }
+
+header button {
+  width: fit-content;
+  height: fit-content;
+}
