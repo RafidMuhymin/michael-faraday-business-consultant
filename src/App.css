@@ -1,7 +1,14 @@
+:root {
+  font-size: 21px;
+}
+
 :root * {
   font-family: "Fredoka", sans-serif;
 }
 
-:root {
-  font-size: 21px;
+hr {
+  width: 93.75%;
+  margin: auto !important;
+  height: 0.1rem !important;
+  margin-bottom: 1.5rem !important;
 }
