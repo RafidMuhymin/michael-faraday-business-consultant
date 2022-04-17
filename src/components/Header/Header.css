@@ -14,3 +14,7 @@ header button {
   width: fit-content;
   height: fit-content;
 }
+
+.brand-heading {
+  font-family: "Pacifico", cursive;
+}
