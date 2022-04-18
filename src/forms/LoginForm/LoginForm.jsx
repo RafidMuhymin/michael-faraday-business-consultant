@@ -2,6 +2,7 @@ import "./LoginForm.css";
 import { Icon } from "@iconify/react";
 import getErrorMessage from "../../utils/getErrorMessage";
 import { useEffect, useState } from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 export default function LoginForm({
   register,
@@ -9,6 +10,7 @@ export default function LoginForm({
   user,
   loading,
   error,
+  notification,
 }) {
   const [err, setErr] = useState(error);
 
@@ -106,6 +108,10 @@ export default function LoginForm({
 
         {err && (
           <p className="pt-3 text-danger text-center">{getErrorMessage(err)}</p>
+        )}
+
+        {notification && (
+          <p className="pt-3 text-success text-center">{notification}</p>
         )}
       </form>
 
