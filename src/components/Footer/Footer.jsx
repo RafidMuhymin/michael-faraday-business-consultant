@@ -10,7 +10,12 @@ export default function Footer() {
       </nav>
 
       <p className="text-white">
-        Copyright &copy; {new Date().getFullYear()} Business Consultant
+        Copyright &copy;{" "}
+        {
+          /* display year dynamically */
+          new Date().getFullYear()
+        }{" "}
+        Business Consultant
       </p>
     </footer>
   );

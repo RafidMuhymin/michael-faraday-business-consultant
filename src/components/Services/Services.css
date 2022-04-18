@@ -1,6 +1,5 @@
 .services {
   display: grid;
-  counter-reset: topic;
 }
 
 @media screen and (min-width: 768px) {

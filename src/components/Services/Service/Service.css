@@ -1,5 +1,7 @@
+/* set css counter */
 .service h3 {
   color: rgb(50, 50, 50);
+  counter-reset: topic;
 }
 
 .service button {

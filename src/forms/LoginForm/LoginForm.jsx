@@ -18,8 +18,6 @@ export default function LoginForm({
   const [signInWithGoogle, , signingInWithGoogle, googleSignInError] =
     useSignInWithGoogle(auth);
 
-  const emailRef = useRef(null);
-
   const [err, setErr] = useState(error);
 
   useEffect(() => {
@@ -31,11 +29,13 @@ export default function LoginForm({
       }, 3000);
     }
 
+    // clean up the timeout on unmount
     return () => {
       clearTimeout(timeoutId);
     };
   }, [err]);
 
+  // handle login or register
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -52,8 +52,12 @@ export default function LoginForm({
       });
     }
 
+    // call login or register callback
     callback(formdata);
   };
+
+  // handle forgot password request
+  const emailRef = useRef(null);
 
   const handleForgotPassword = (e) => {
     e.preventDefault();
@@ -69,10 +73,12 @@ export default function LoginForm({
     forgotPasswordCallback(email);
   };
 
+  // handle google sign in
   const handleGoogleSignIn = () => {
     signInWithGoogle();
   };
 
+  // navigate authenticated users to home page
   const [user, loadingAuthState] = useAuthState(auth);
 
   const location = useLocation();

@@ -10,6 +10,7 @@ export default function Login() {
   useEffect(() => {
     let timeoutId;
 
+    // clean timeout on unmount
     if (notification) {
       timeoutId = setTimeout(() => {
         setNotification(null);
@@ -24,12 +25,14 @@ export default function Login() {
   const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  // login user callback
   const callback = (formdata) => {
     const { email, password } = formdata;
 
     signInWithEmailAndPassword(email, password);
   };
 
+  // forgot password callback
   const forgotPasswordCallback = (email) => {
     sendPasswordResetEmail(auth, email).then(() => {
       setNotification("Password reset email sent");
@@ -42,6 +45,7 @@ export default function Login() {
       forgotPasswordCallback={forgotPasswordCallback}
       loading={loading}
       error={error}
+      // force LoginForm to rerender when error changes
       key={error}
       notification={notification}
     />

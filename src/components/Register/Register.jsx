@@ -16,6 +16,7 @@ export default function Register() {
       }, 3000);
     }
 
+    // clean timeout on unmount
     return () => {
       clearTimeout(timeoutId);
     };
@@ -24,6 +25,7 @@ export default function Register() {
   let [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+  // register user callback
   const callback = (formdata) => {
     const { email, password } = formdata;
 
@@ -42,6 +44,7 @@ export default function Register() {
       callback={callback}
       loading={loading}
       error={error}
+      // force LoginForm to rerender when error changes
       key={error}
       notification={notification}
     />

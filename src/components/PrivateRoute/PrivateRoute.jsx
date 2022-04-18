@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import auth from "../../firebase/firebase";
 
 export default function PrivateRoute({ children }) {
+  // navigate unauthorized users to login page
   const [user, loading, error] = useAuthState(auth);
 
   const location = useLocation();
