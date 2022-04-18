@@ -1,5 +1,6 @@
 import "./Services.css";
 import Service from "./Service/Service";
+import services from "../../data/services";
 
 export default function Services() {
   return (
@@ -9,26 +10,9 @@ export default function Services() {
       <hr />
 
       <div className="services px-4 gap-4">
-        <Service heading="CEO Coaching">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad expedita
-          dignissimos accusantium nostrum ullam libero earum officia deleniti,
-          enim animi consectetur deserunt recusandae incidunt inventore saepe
-          quisquam beatae, cumque amet?
-        </Service>
-
-        <Service heading="Business Coaching">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad expedita
-          dignissimos accusantium nostrum ullam libero earum officia deleniti,
-          enim animi consectetur deserunt recusandae incidunt inventore saepe
-          quisquam beatae, cumque amet?
-        </Service>
-
-        <Service heading="Management Coaching">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad expedita
-          dignissimos accusantium nostrum ullam libero earum officia deleniti,
-          enim animi consectetur deserunt recusandae incidunt inventore saepe
-          quisquam beatae, cumque amet?
-        </Service>
+        {services.map((service) => (
+          <Service key={service.name} {...service} />
+        ))}
       </div>
     </section>
   );

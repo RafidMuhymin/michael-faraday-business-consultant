@@ -11,3 +11,7 @@
   content: counter(topic) ". ";
   color: rgb(13, 110, 253);
 }
+
+.service img {
+  border-radius: 0.75rem;
+}

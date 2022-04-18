@@ -1,7 +1,7 @@
 import "./Service.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Service({ heading, children }) {
+export default function Service({ name, description, image, price }) {
   const navigate = useNavigate();
 
   const navigateToCheckout = () => {
@@ -10,7 +10,9 @@ export default function Service({ heading, children }) {
 
   return (
     <div className="service py-3 d-flex flex-column justify-content-evenly">
-      <h3 className="text-center">{heading}</h3>
+      <h3 className="text-center">{name}</h3>
+
+      <img className="img-fluid py-2" src={image} alt={name} />
 
       <p
         className="text-secondary"
@@ -19,7 +21,7 @@ export default function Service({ heading, children }) {
           textAlignLast: "center",
         }}
       >
-        {children}
+        {description}
       </p>
 
       <button
@@ -27,7 +29,7 @@ export default function Service({ heading, children }) {
         to="/checkout"
         className="d-block btn btn-primary mx-auto my-0"
       >
-        Book an Appointment
+        Book an Appointment for ${price}
       </button>
     </div>
   );
