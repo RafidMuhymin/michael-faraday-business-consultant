@@ -1,9 +1,10 @@
-header nav a {
-  color: white;
+header nav *{
+  color: white !important;
+  text-decoration: underline !important;
 }
 
-header nav a:hover {
-  color: rgb(255, 204, 93);
+header nav *:hover {
+  color: rgb(255, 204, 93) !important;
 }
 
 header svg {

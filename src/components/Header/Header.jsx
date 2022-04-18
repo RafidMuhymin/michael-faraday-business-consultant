@@ -2,12 +2,21 @@ import "./Header.css";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase";
+import { signOut } from "firebase/auth";
 
 export default function Header() {
+  const [user] = useAuthState(auth);
+
   const [displayMenu, setDisplayMenu] = useState(false);
 
-  const handleClick = () => {
+  const handleDisplayMenu = () => {
     setDisplayMenu(!displayMenu);
+  };
+
+  const handleLogOut = () => {
+    signOut(auth);
   };
 
   return (
@@ -16,7 +25,7 @@ export default function Header() {
         <div className="fs-2 brand-heading">Michael Faraday</div>
 
         <button
-          onClick={handleClick}
+          onClick={handleDisplayMenu}
           className="ms-auto btn btn-light d-inline-block d-lg-none py-1 px-2"
         >
           <Icon icon="bytesize:menu" />
@@ -31,9 +40,20 @@ export default function Header() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/checkout">Checkout</Link>
+
+        {user ? (
+          <>
+            <Link to="/checkout">Checkout</Link>
+            <button onClick={handleLogOut} className="btn p-0">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
       </nav>
     </header>
   );
