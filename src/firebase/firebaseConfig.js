@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAhNUqMH3kSWHiOtpnelL7jtk_Yl7BNXLg",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "business-consultant-7d4da.firebaseapp.com",
   projectId: "business-consultant-7d4da",
   storageBucket: "business-consultant-7d4da.appspot.com",
