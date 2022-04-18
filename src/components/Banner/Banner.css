@@ -10,11 +10,12 @@
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.banner div button {
-}
-
 @media screen and (min-width: 768px) {
-  .banner div :is(:not(button)) {
+  .banner div * {
     width: 60%;
+  }
+
+  .banner div a {
+    width: fit-content;
   }
 }

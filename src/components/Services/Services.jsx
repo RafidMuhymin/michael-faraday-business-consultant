@@ -4,7 +4,7 @@ import services from "../../data/services";
 
 export default function Services() {
   return (
-    <section>
+    <section id="services">
       <h2 className="fs-1 px-3 py-4 text-center">Services</h2>
 
       <hr />

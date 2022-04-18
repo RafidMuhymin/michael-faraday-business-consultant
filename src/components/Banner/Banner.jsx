@@ -16,7 +16,9 @@ export default function Banner() {
           pariatur non?
         </p>
 
-        <button className="btn btn-primary d-block mb-5">Let's Work Together</button>
+        <a href="#services" className="btn btn-primary d-block mb-5">
+          Let's Work Together
+        </a>
       </div>
     </section>
   );
