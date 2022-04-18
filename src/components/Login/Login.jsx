@@ -18,6 +18,7 @@ export default function Login() {
       user={user}
       loading={loading}
       error={error}
+      key={error}
     />
   );
 }
