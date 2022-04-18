@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -21,7 +22,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={<PrivateRoute children={<Checkout />} />}
+        />
       </Routes>
       <Footer />
     </div>

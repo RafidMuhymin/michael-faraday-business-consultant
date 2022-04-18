@@ -9,7 +9,7 @@ export default function PrivateRoute({ children }) {
   const location = useLocation();
 
   if (loading) {
-    return;
+    return null;
   }
 
   if (!user || error) {
