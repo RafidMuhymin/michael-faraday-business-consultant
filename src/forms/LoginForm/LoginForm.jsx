@@ -1,11 +1,52 @@
-import { Icon } from "@iconify/react";
 import "./LoginForm.css";
+import { Icon } from "@iconify/react";
+import getErrorMessage from "../../utils/getErrorMessage";
+import { useEffect, useState } from "react";
 
-export default function LoginForm({ register }) {
+export default function LoginForm({
+  register,
+  callback,
+  user,
+  loading,
+  error,
+}) {
+  if (user) {
+    console.log("User", user);
+  }
+
+  const [err, setErr] = useState(error);
+
+  let timeoutId;
+
+  if (err) {
+    timeoutId = setTimeout(() => {
+      setErr(null);
+    }, 3000);
+  }
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [timeoutId]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setErr(null);
+
     const formdata = Object.fromEntries(new FormData(e.target).entries());
+
+    if (
+      formdata.confirmedPassword &&
+      formdata.password !== formdata.confirmedPassword
+    ) {
+      return setErr({
+        code: "auth/password-mismatch",
+      });
+    }
+
+    callback(formdata);
   };
 
   return (
@@ -47,14 +88,14 @@ export default function LoginForm({ register }) {
         {register && (
           <>
             <br />
-            <label htmlFor="passwordConfirm" className="form-label">
+            <label htmlFor="confirmedPassword" className="form-label">
               Confirm Password
             </label>
             <input
               className="form-control"
               type="password"
-              name="passwordConfirm"
-              id="passwordConfirm"
+              name="confirmedPassword"
+              id="confirmedPassword"
               autoComplete="new-password"
               required
             />
@@ -64,8 +105,14 @@ export default function LoginForm({ register }) {
         <br />
 
         <button className="px-5 btn btn-primary d-block mx-auto" type="submit">
-          {register ? "Register" : "Login"}
+          {loading ? "Loading..." : register ? "Register" : "Login"}
         </button>
+
+        {err && (
+          <p className="pt-3 text-danger text-center">
+            {getErrorMessage(err)}
+          </p>
+        )}
       </form>
 
       <div className="d-flex gap-3 my-4 align-items-center">
