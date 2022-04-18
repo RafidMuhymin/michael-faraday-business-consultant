@@ -119,7 +119,10 @@ export default function LoginForm({
           required
         />
         {!register && (
-          <button onClick={handleForgotPassword} className="btn btn-link px-0 my-2">
+          <button
+            onClick={handleForgotPassword}
+            className="btn btn-link px-0 my-2"
+          >
             Forgot Password?
           </button>
         )}
@@ -144,7 +147,15 @@ export default function LoginForm({
         <br />
 
         <button className="px-5 btn btn-primary d-block mx-auto" type="submit">
-          {loading ? "Loading..." : register ? "Register" : "Login"}
+          {loading ? (
+            <div class="spinner-border text-light" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          ) : register ? (
+            "Register"
+          ) : (
+            "Login"
+          )}
         </button>
 
         {err && (
@@ -167,7 +178,9 @@ export default function LoginForm({
         className="px-5 btn btn-primary d-flex gap-2 mx-auto align-items-center"
       >
         {signingInWithGoogle ? (
-          "Loading..."
+          <div class="spinner-border text-light m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         ) : (
           <>
             <Icon icon="flat-color-icons:google"></Icon>
