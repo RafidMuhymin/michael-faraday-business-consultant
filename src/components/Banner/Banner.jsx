@@ -8,12 +8,10 @@ export default function Banner() {
         <h2 className="fs-1 m-0 pb-3">Helping You Build Inner Resilience</h2>
 
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta omnis
-          dolorum fuga eos non aspernatur ullam accusamus consequatur aut
-          commodi eveniet, tempore ea iure eum explicabo odio sunt a maiores
-          eaque cum voluptate repellat nihil dignissimos! Quia, laboriosam
-          inventore. Maiores ipsa ipsam magnam nostrum magni iusto hic facilis
-          pariatur non?
+          Hey, I am Michael Faraday. I am a former CEO and professional business
+          coach. I have been coaching since 14 years and have coached over 1,000
+          people all over the world. If you want to grow your busines and
+          looking for personalized guidance, Michael Faraday is your guy.
         </p>
 
         <a href="#services" className="btn btn-primary d-block mb-5">
