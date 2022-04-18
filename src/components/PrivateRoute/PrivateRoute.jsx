@@ -1,7 +1,20 @@
-import React from 'react'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import auth from "../../firebase/firebase";
 
-export default function PrivateRoute() {
-  return (
-    <div>PrivateRoute</div>
-  )
+export default function PrivateRoute({ children }) {
+  const [user, loading, error] = useAuthState(auth);
+
+  const location = useLocation();
+
+  if (loading) {
+    return;
+  }
+
+  if (!user || error) {
+    return <Navigate to={"/login"} state={{ from: location }} replace />;
+  }
+
+  return children;
 }
