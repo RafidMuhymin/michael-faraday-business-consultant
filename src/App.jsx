@@ -10,6 +10,7 @@ import Register from "./components/Register/Register";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           path="/checkout"
           element={<PrivateRoute children={<Checkout />} />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
