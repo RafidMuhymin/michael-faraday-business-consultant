@@ -10,25 +10,21 @@ export default function LoginForm({
   loading,
   error,
 }) {
-  if (user) {
-    console.log("User", user);
-  }
-
   const [err, setErr] = useState(error);
 
-  let timeoutId;
-
-  if (err) {
-    timeoutId = setTimeout(() => {
-      setErr(null);
-    }, 3000);
-  }
-
   useEffect(() => {
+    let timeoutId;
+
+    if (err) {
+      timeoutId = setTimeout(() => {
+        setErr(null);
+      }, 3000);
+    }
+
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [timeoutId]);
+  }, [err]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,9 +105,7 @@ export default function LoginForm({
         </button>
 
         {err && (
-          <p className="pt-3 text-danger text-center">
-            {getErrorMessage(err)}
-          </p>
+          <p className="pt-3 text-danger text-center">{getErrorMessage(err)}</p>
         )}
       </form>
 
