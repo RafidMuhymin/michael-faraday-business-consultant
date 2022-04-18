@@ -15,7 +15,7 @@ export default function Footer() {
           /* display year dynamically */
           new Date().getFullYear()
         }{" "}
-        Business Consultant
+        Michael Faraday
       </p>
     </footer>
   );
