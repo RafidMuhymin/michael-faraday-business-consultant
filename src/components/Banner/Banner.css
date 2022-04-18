@@ -1,7 +1,7 @@
 .banner {
   color: white;
   background-image: url(../../images/michael-faraday.jpg);
-  background-position: 50% 50%;
+  background-position: top right;
   background-size: cover;
 }
 
