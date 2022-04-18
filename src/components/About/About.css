@@ -1,0 +1,12 @@
+.about {
+  max-width: 768px;
+}
+
+.about h1 {
+  font-family: "Pacifico", cursive;
+  color: crimson;
+}
+
+.about img {
+  border-radius: 50%;
+}
