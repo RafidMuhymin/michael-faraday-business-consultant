@@ -1,6 +1,6 @@
 import "./Header.css";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase";
@@ -37,21 +37,21 @@ export default function Header() {
           displayMenu ? "d-flex" : "d-none"
         } gap-3`}
       >
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
 
         {user ? (
           <>
-            <Link to="/checkout">Checkout</Link>
+            <NavLink to="/checkout">Checkout</NavLink>
             <button onClick={handleLogOut} className="btn p-0">
               Log Out
             </button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/register">Register</NavLink>
           </>
         )}
       </nav>

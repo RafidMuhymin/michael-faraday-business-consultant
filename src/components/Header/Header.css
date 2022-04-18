@@ -1,4 +1,4 @@
-header nav *{
+header nav * {
   color: white !important;
   text-decoration: underline !important;
 }
@@ -18,4 +18,8 @@ header button {
 
 .brand-heading {
   font-family: "Pacifico", cursive;
+}
+
+header nav .active {
+  color: rgb(255, 204, 93) !important;
 }
