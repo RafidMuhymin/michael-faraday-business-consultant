@@ -9,7 +9,7 @@ export default function Service({ heading, children }) {
   };
 
   return (
-    <div className="py-3 d-flex flex-column justify-content-evenly">
+    <div className="service py-3 d-flex flex-column justify-content-evenly">
       <h3 className="text-center">{heading}</h3>
 
       <p
