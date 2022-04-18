@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header className="py-2 px-3 bg-primary text-white d-flex flex-column flex-lg-row align-items-lg-center">
+    <header className="p-3 bg-primary text-white d-flex flex-column flex-lg-row align-items-lg-center">
       <div className="d-flex align-items-center">
         <div className="fs-2 brand-heading">Michael Faraday</div>
 
