@@ -3,17 +3,19 @@ import { Icon } from "@iconify/react";
 import getErrorMessage from "../../utils/getErrorMessage";
 import { useEffect, useRef, useState } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm({
   register,
   callback,
   forgotPasswordCallback,
-  user,
   loading,
   error,
   notification,
 }) {
-  console.log(notification);
+  const [signInWithGoogle, , signingInWithGoogle, googleSignInError] =
+    useSignInWithGoogle(auth);
 
   const emailRef = useRef(null);
 
@@ -64,6 +66,10 @@ export default function LoginForm({
     }
 
     forgotPasswordCallback(email);
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle();
   };
 
   return (
@@ -143,10 +149,25 @@ export default function LoginForm({
         <hr className="flex-grow-1 m-0" />
       </div>
 
-      <button className="px-5 btn btn-primary d-flex gap-2 mx-auto align-items-center">
-        <Icon icon="flat-color-icons:google"></Icon>
-        Sign in Using Google
+      <button
+        onClick={handleGoogleSignIn}
+        className="px-5 btn btn-primary d-flex gap-2 mx-auto align-items-center"
+      >
+        {signingInWithGoogle ? (
+          "Loading..."
+        ) : (
+          <>
+            <Icon icon="flat-color-icons:google"></Icon>
+            Sign in Using Google
+          </>
+        )}
       </button>
+
+      {googleSignInError && (
+        <p className="pt-3 text-danger text-center">
+          {getErrorMessage(googleSignInError)}
+        </p>
+      )}
     </main>
   );
 }

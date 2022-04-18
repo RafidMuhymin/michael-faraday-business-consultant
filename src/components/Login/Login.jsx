@@ -21,7 +21,7 @@ export default function Login() {
     };
   }, [notification]);
 
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
 
   const callback = (formdata) => {
@@ -40,7 +40,6 @@ export default function Login() {
     <LoginForm
       callback={callback}
       forgotPasswordCallback={forgotPasswordCallback}
-      user={user}
       loading={loading}
       error={error}
       key={error}

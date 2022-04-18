@@ -21,7 +21,7 @@ export default function Register() {
     };
   }, [notification]);
 
-  let [createUserWithEmailAndPassword, user, loading, error] =
+  let [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
   const callback = (formdata) => {
@@ -40,7 +40,6 @@ export default function Register() {
     <LoginForm
       register
       callback={callback}
-      user={user}
       loading={loading}
       error={error}
       key={error}
