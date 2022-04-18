@@ -1,18 +1,16 @@
 import { useState } from "react";
 import "./Toast.css";
 
-export default function Toast({ showToast }) {
-  const [hide, setHide] = useState(true);
-
+export default function Toast({ showToast, setShowToast }) {
   const handleCut = () => {
-    setHide(true);
+    setShowToast(false);
   };
 
   return (
     <div
       class={
         "fp-toast position-fixed top-0 end-0 p-3" +
-        (!hide || showToast ? "" : " d-none")
+        (showToast ? "" : " d-none")
       }
       style={{
         zIndex: "11",

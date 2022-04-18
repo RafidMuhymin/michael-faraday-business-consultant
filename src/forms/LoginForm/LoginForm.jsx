@@ -134,7 +134,7 @@ export default function LoginForm({
             >
               Forgot Password?
             </button>
-            <Toast showToast={showToast} />
+            <Toast showToast={showToast} setShowToast={setShowToast} />
           </>
         )}
 
