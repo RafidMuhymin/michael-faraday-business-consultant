@@ -33,9 +33,12 @@ export default function Login() {
   };
 
   // forgot password callback
-  const forgotPasswordCallback = (email) => {
+  const forgotPasswordCallback = (email, setShowToast) => {
+    setShowToast(true);
+
     sendPasswordResetEmail(auth, email).then(() => {
       setNotification("Password reset email sent");
+      setShowToast(false);
     });
   };
 

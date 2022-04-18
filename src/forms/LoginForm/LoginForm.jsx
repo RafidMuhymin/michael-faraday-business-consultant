@@ -6,6 +6,7 @@ import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase";
 import { useLocation } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import Toast from "../../components/Toast/Toast";
 
 export default function LoginForm({
   register,
@@ -19,6 +20,7 @@ export default function LoginForm({
     useSignInWithGoogle(auth);
 
   const [err, setErr] = useState(error);
+  const [showToast, setShowToast] = useState(false)
 
   useEffect(() => {
     let timeoutId;
@@ -70,7 +72,7 @@ export default function LoginForm({
       });
     }
 
-    forgotPasswordCallback(email);
+    forgotPasswordCallback(email, setShowToast);
   };
 
   // handle google sign in
@@ -125,12 +127,15 @@ export default function LoginForm({
           required
         />
         {!register && (
-          <button
-            onClick={handleForgotPassword}
-            className="btn btn-link px-0 my-2"
-          >
-            Forgot Password?
-          </button>
+          <>
+            <button
+              onClick={handleForgotPassword}
+              className="btn btn-link px-0 my-2"
+            >
+              Forgot Password?
+            </button>
+            <Toast showToast={showToast} />
+          </>
         )}
 
         {register && (
