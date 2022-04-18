@@ -17,3 +17,8 @@
 .service img {
   border-radius: 0.75rem;
 }
+
+.service:hover {
+  transform: scale(1.025);
+  transition: transform 0.3s;
+}
