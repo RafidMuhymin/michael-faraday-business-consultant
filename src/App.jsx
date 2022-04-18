@@ -23,10 +23,16 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/checkout"
-          element={<PrivateRoute children={<Checkout />} />}
-        />
+        <Route path="/checkout">
+          <Route
+            path=":service"
+            element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            }
+          ></Route>
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

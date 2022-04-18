@@ -43,7 +43,6 @@ export default function Header() {
 
         {user ? (
           <>
-            <NavLink to="/checkout">Checkout</NavLink>
             <button onClick={handleLogOut} className="btn p-0">
               Log Out
             </button>

@@ -5,7 +5,7 @@ export default function Service({ name, description, image, price }) {
   const navigate = useNavigate();
 
   const navigateToCheckout = () => {
-    navigate("/checkout");
+    navigate(`/checkout/${name}`);
   };
 
   return (
@@ -26,7 +26,6 @@ export default function Service({ name, description, image, price }) {
 
       <button
         onClick={navigateToCheckout}
-        to="/checkout"
         className="d-block btn btn-primary mx-auto my-0"
       >
         Book an Appointment for ${price}
