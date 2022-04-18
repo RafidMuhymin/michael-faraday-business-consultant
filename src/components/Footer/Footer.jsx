@@ -7,9 +7,6 @@ export default function Footer() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/checkout">Checkout</Link>
       </nav>
 
       <p className="text-white">
