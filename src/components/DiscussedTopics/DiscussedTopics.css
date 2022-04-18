@@ -1,10 +1,15 @@
 .topics {
   display: grid;
-  counter-reset: topic;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
   .topics {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .topics {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
