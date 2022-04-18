@@ -33,7 +33,7 @@ export default function Header() {
       </div>
 
       <nav
-        className={`ms-0 ms-lg-auto text-white d-lg-flex flex-column align-items-center flex-lg-row ${
+        className={`my-3 my-lg-0 ms-0 ms-lg-auto text-white d-lg-flex flex-column align-items-center flex-lg-row ${
           displayMenu ? "d-flex" : "d-none"
         } gap-3`}
       >

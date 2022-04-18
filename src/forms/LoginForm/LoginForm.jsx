@@ -86,7 +86,7 @@ export default function LoginForm({
   }
 
   return (
-    <main className="sign p-3 mx-auto">
+    <main className="sign p-4 mx-auto">
       <h1 className="pb-2 text-center">
         {register ? "Register an Account" : "Login to your Account"}
       </h1>
@@ -119,7 +119,7 @@ export default function LoginForm({
           required
         />
         {!register && (
-          <button onClick={handleForgotPassword} className="btn btn-link px-0">
+          <button onClick={handleForgotPassword} className="btn btn-link px-0 my-2">
             Forgot Password?
           </button>
         )}
