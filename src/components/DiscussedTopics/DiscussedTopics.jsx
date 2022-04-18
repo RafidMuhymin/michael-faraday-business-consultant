@@ -11,7 +11,7 @@ export default function DiscussedTopics() {
 
       <div className="topics gap-3 px-4 py-3">
         {topics.map(({ name, lessons }) => (
-          <Topic name={name} lessons={lessons} />
+          <Topic key={name} name={name} lessons={lessons} />
         ))}
       </div>
     </section>
