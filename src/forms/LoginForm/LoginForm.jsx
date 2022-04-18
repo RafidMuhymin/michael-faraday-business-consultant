@@ -1,17 +1,22 @@
 import "./LoginForm.css";
 import { Icon } from "@iconify/react";
 import getErrorMessage from "../../utils/getErrorMessage";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 export default function LoginForm({
   register,
   callback,
+  forgotPasswordCallback,
   user,
   loading,
   error,
   notification,
 }) {
+  console.log(notification);
+
+  const emailRef = useRef(null);
+
   const [err, setErr] = useState(error);
 
   useEffect(() => {
@@ -47,6 +52,20 @@ export default function LoginForm({
     callback(formdata);
   };
 
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+
+    const email = emailRef.current.value;
+
+    if (!email) {
+      return setErr({
+        code: "auth/invalid-email",
+      });
+    }
+
+    forgotPasswordCallback(email);
+  };
+
   return (
     <main className="sign p-3 mx-auto">
       <h1 className="pb-2 text-center">
@@ -58,6 +77,7 @@ export default function LoginForm({
           Enter Your Email Address
         </label>
         <input
+          ref={emailRef}
           className="form-control"
           type="email"
           name="email"
@@ -80,7 +100,9 @@ export default function LoginForm({
           required
         />
         {!register && (
-          <button className="btn btn-link px-0">Forgot Password?</button>
+          <button onClick={handleForgotPassword} className="btn btn-link px-0">
+            Forgot Password?
+          </button>
         )}
 
         {register && (
