@@ -1,8 +1,6 @@
-# Michael Farday | Business Consultant
+# Michael Faraday | Business Consultant
 
-## GitHub Link: https://github.com/programming-hero-web-course-4/independent-service-provider-RafidMuhymin
-
-## Live Link: https://business-consultant-7d4da.web.app/
+## Live URL: https://business-consultant-7d4da.web.app/
 
 ## Features and Functionalities of the project
 
